@@ -1,0 +1,24 @@
+{
+  "name": "dimbat",
+  "version": "1.0.0",
+  "description": "Dimensionamento de capacidades e autonomia para estações de energia por baterias de lítio",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node server/index.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "battery",
+    "ecoflow",
+    "dimensionamento",
+    "energia",
+    "power-station"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

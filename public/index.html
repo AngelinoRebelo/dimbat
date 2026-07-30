@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DimBat — Dimensionamento de Estações de Energia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <div>
+        <p class="brand-name">DimBat</p>
+        <p class="brand-tag">Dimensionamento de baterias</p>
+      </div>
+    </div>
+    <nav class="tabs" role="tablist">
+      <button type="button" class="tab active" data-panel="sizing" role="tab" aria-selected="true">Dimensionar</button>
+      <button type="button" class="tab" data-panel="catalog" role="tab" aria-selected="false">Catálogo</button>
+      <button type="button" class="tab" data-panel="compare" role="tab" aria-selected="false">Comparar</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="panel-sizing" class="panel active" role="tabpanel">
+      <div class="hero-block">
+        <h1>Quanto de bateria você precisa?</h1>
+        <p>Informe as cargas, a autonomia desejada e veja quais estações de energia atendem — com margem de segurança e potência de pico.</p>
+      </div>
+
+      <div class="layout-split">
+        <aside class="stack">
+          <div class="section-block">
+            <h2>Cargas</h2>
+            <p class="hint">Adicione aparelhos ou use os presets.</p>
+            <div class="preset-row" id="preset-row"></div>
+            <form id="load-form" class="load-form">
+              <label>
+                Nome
+                <input type="text" id="load-name" placeholder="Ex.: Geladeira" required />
+              </label>
+              <label>
+                Potência (W)
+                <input type="number" id="load-watts" min="1" step="1" placeholder="150" required />
+              </label>
+              <label>
+                Horas/dia
+                <input type="number" id="load-hours" min="0.1" max="24" step="0.1" placeholder="8" required />
+              </label>
+              <label>
+                Pico (W)
+                <input type="number" id="load-surge" min="0" step="1" placeholder="opcional" />
+              </label>
+              <button type="submit" class="btn primary">Adicionar</button>
+            </form>
+            <ul id="load-list" class="load-list"></ul>
+          </div>
+
+          <div class="section-block">
+            <h2>Parâmetros</h2>
+            <div class="params-grid">
+              <label>
+                Autonomia desejada (dias)
+                <input type="number" id="param-days" min="0.25" max="30" step="0.25" value="1" />
+              </label>
+              <label>
+                Profundidade de descarga DoD (%)
+                <input type="number" id="param-dod" min="50" max="100" step="1" value="90" />
+              </label>
+              <label>
+                Eficiência do inversor (%)
+                <input type="number" id="param-eff" min="70" max="100" step="1" value="90" />
+              </label>
+              <label>
+                Margem de segurança (%)
+                <input type="number" id="param-margin" min="0" max="50" step="5" value="20" />
+              </label>
+              <label>
+                Carga simultânea máxima (W)
+                <input type="number" id="param-simult" min="0" step="1" placeholder="auto = soma" />
+              </label>
+            </div>
+          </div>
+        </aside>
+
+        <div class="stack">
+          <div class="section-block results">
+            <h2>Resultado do dimensionamento</h2>
+            <div id="summary" class="summary-grid">
+              <div class="metric">
+                <span class="metric-label">Consumo diário</span>
+                <span class="metric-value" id="m-daily">—</span>
+              </div>
+              <div class="metric">
+                <span class="metric-label">Energia necessária</span>
+                <span class="metric-value" id="m-needed">—</span>
+              </div>
+              <div class="metric">
+                <span class="metric-label">Potência contínua</span>
+                <span class="metric-value" id="m-power">—</span>
+              </div>
+              <div class="metric">
+                <span class="metric-label">Pico estimado</span>
+                <span class="metric-value" id="m-surge">—</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="section-block">
+            <div class="section-head">
+              <h2>Estações recomendadas</h2>
+              <label class="inline-filter">
+                Marca
+                <select id="filter-brand">
+                  <option value="">Todas</option>
+                </select>
+              </label>
+            </div>
+            <div id="recommendations" class="card-grid"></div>
+            <p id="rec-empty" class="empty hidden">Adicione ao menos uma carga para ver recomendações.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="panel-catalog" class="panel" role="tabpanel" hidden>
+      <div class="hero-block">
+        <h1>Catálogo de estações</h1>
+        <p>Banco de modelos portáteis e semi-estacionários — EcoFlow, Bluetti, Jackery e outros.</p>
+      </div>
+      <div class="toolbar">
+        <input type="search" id="catalog-search" placeholder="Buscar modelo ou marca…" />
+        <select id="catalog-brand">
+          <option value="">Todas as marcas</option>
+        </select>
+        <select id="catalog-chem">
+          <option value="">Todas as químicas</option>
+          <option value="LFP">LFP</option>
+          <option value="NMC">NMC</option>
+        </select>
+      </div>
+      <div id="catalog-grid" class="card-grid"></div>
+    </section>
+
+    <section id="panel-compare" class="panel" role="tabpanel" hidden>
+      <div class="hero-block">
+        <h1>Comparar modelos</h1>
+        <p>Selecione até 3 estações no catálogo ou nas recomendações.</p>
+      </div>
+      <div id="compare-picks" class="compare-picks"></div>
+      <div id="compare-table-wrap" class="table-wrap">
+        <p class="empty">Nenhum modelo selecionado para comparação.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>DimBat — valores de catálogo são aproximados e podem variar por região/firmware. Sempre confira a ficha técnica oficial.</p>
+  </footer>
+
+  <script src="/js/app.js" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+node_modules/
+.npm/
+.env
+.env.*
+!.env.example
+.DS_Store
+*.log
+.railway/
