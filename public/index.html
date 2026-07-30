@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>DimBat — Dimensionamento de Estações de Energia</title>
+  <title>DimBat — Dimensionamento de Estações e Solar</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
@@ -16,11 +16,12 @@
       <span class="brand-mark" aria-hidden="true"></span>
       <div>
         <p class="brand-name">DimBat</p>
-        <p class="brand-tag">Dimensionamento de baterias</p>
+        <p class="brand-tag">Baterias &amp; solar</p>
       </div>
     </div>
     <nav class="tabs" role="tablist">
-      <button type="button" class="tab active" data-panel="sizing" role="tab" aria-selected="true">Dimensionar</button>
+      <button type="button" class="tab active" data-panel="sizing" role="tab" aria-selected="true">Baterias</button>
+      <button type="button" class="tab" data-panel="solar" role="tab" aria-selected="false">Solar</button>
       <button type="button" class="tab" data-panel="catalog" role="tab" aria-selected="false">Catálogo</button>
       <button type="button" class="tab" data-panel="compare" role="tab" aria-selected="false">Comparar</button>
     </nav>
@@ -128,12 +129,119 @@
       </div>
     </section>
 
+    <section id="panel-solar" class="panel" role="tabpanel" hidden>
+      <div class="hero-block">
+        <h1>Dimensionamento solar</h1>
+        <p>Calcule quantidade de painéis, escolha inversores e cruze com estações de energia — com links oficiais de cada equipamento.</p>
+      </div>
+
+      <div class="layout-split">
+        <aside class="stack">
+          <div class="section-block">
+            <h2>Demanda energética</h2>
+            <p class="hint">Use o consumo da aba Baterias ou informe manualmente.</p>
+            <div class="params-grid">
+              <label>
+                Consumo diário (Wh)
+                <input type="number" id="solar-daily" min="100" step="50" value="3000" />
+              </label>
+              <label>
+                Horas de sol pleno (HSP)
+                <input type="number" id="solar-hsp" min="2" max="8" step="0.1" value="4.5" />
+              </label>
+              <label>
+                Perdas do sistema (%)
+                <input type="number" id="solar-losses" min="5" max="40" step="1" value="20" />
+              </label>
+              <label>
+                Margem de segurança (%)
+                <input type="number" id="solar-margin" min="0" max="50" step="5" value="15" />
+              </label>
+              <label>
+                Potência pico da carga (W)
+                <input type="number" id="solar-peak" min="0" step="50" value="1500" />
+              </label>
+              <button type="button" class="btn ghost" id="solar-import-loads">Importar consumo das baterias</button>
+            </div>
+          </div>
+
+          <div class="section-block">
+            <h2>Painel selecionado</h2>
+            <label>
+              Modelo de painel
+              <select id="solar-panel-select"></select>
+            </label>
+            <p class="hint" id="solar-panel-hint">Selecione um painel do catálogo.</p>
+            <a id="solar-panel-link" class="ext-link hidden" href="#" target="_blank" rel="noopener noreferrer">Ver no site do fabricante ↗</a>
+          </div>
+        </aside>
+
+        <div class="stack">
+          <div class="section-block results">
+            <h2>Resultado solar</h2>
+            <div class="summary-grid">
+              <div class="metric">
+                <span class="metric-label">Geração necessária</span>
+                <span class="metric-value" id="s-needed">—</span>
+              </div>
+              <div class="metric">
+                <span class="metric-label">Qtd. de painéis</span>
+                <span class="metric-value" id="s-panels">—</span>
+              </div>
+              <div class="metric">
+                <span class="metric-label">Potência do arranjo</span>
+                <span class="metric-value" id="s-array">—</span>
+              </div>
+              <div class="metric">
+                <span class="metric-label">Inversor mínimo</span>
+                <span class="metric-value" id="s-inv">—</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="section-block">
+            <div class="section-head">
+              <h2>Inversores recomendados</h2>
+            </div>
+            <div id="solar-inverters" class="card-grid"></div>
+          </div>
+
+          <div class="section-block">
+            <div class="section-head">
+              <h2>Estações compatíveis (entrada solar)</h2>
+            </div>
+            <div id="solar-stations" class="card-grid"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-block catalog-section">
+        <div class="section-head">
+          <h2>Catálogo solar completo</h2>
+          <div class="subtabs" role="tablist" aria-label="Tipo de equipamento solar">
+            <button type="button" class="subtab active" data-solar-cat="panels">Painéis</button>
+            <button type="button" class="subtab" data-solar-cat="inverters">Inversores</button>
+            <button type="button" class="subtab" data-solar-cat="stations">Estações</button>
+          </div>
+        </div>
+        <div class="toolbar">
+          <input type="search" id="solar-catalog-search" placeholder="Buscar marca ou modelo…" />
+        </div>
+        <div id="solar-catalog-grid" class="card-grid"></div>
+      </div>
+    </section>
+
     <section id="panel-catalog" class="panel" role="tabpanel" hidden>
       <div class="hero-block">
-        <h1>Catálogo de estações</h1>
-        <p>Banco de modelos portáteis e semi-estacionários — EcoFlow, Bluetti, Jackery e outros.</p>
+        <h1>Catálogo de equipamentos</h1>
+        <p>Estações, painéis e inversores com links para os sites oficiais dos fabricantes.</p>
       </div>
       <div class="toolbar">
+        <select id="catalog-type">
+          <option value="stations">Estações de energia</option>
+          <option value="panels">Painéis solares</option>
+          <option value="inverters">Inversores</option>
+        </select>
         <input type="search" id="catalog-search" placeholder="Buscar modelo ou marca…" />
         <select id="catalog-brand">
           <option value="">Todas as marcas</option>
@@ -160,7 +268,7 @@
   </main>
 
   <footer class="site-footer">
-    <p>DimBat — valores de catálogo são aproximados e podem variar por região/firmware. Sempre confira a ficha técnica oficial.</p>
+    <p>DimBat — valores de catálogo são aproximados e podem variar por região/firmware. Sempre confira a ficha técnica oficial no site do fabricante.</p>
   </footer>
 
   <script src="/js/app.js" type="module"></script>

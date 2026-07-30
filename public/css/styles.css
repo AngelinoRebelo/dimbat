@@ -511,9 +511,72 @@ select:focus {
 
 .card-actions {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.4rem;
   margin-top: auto;
   padding-top: 0.35rem;
+}
+
+.ext-link,
+a.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  text-decoration: none;
+  color: var(--accent);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+a.btn {
+  justify-content: center;
+  color: var(--text);
+}
+
+a.btn.primary {
+  color: #062015;
+}
+
+.subtabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.subtab {
+  appearance: none;
+  border: 1px solid var(--line);
+  background: var(--bg);
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.subtab.active {
+  background: var(--accent-dim);
+  color: var(--accent);
+  border-color: rgba(61, 214, 140, 0.35);
+}
+
+.catalog-section {
+  margin-top: 1.25rem;
+}
+
+.site-origin {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: 0.72rem;
+  color: var(--muted);
+  word-break: break-all;
+}
+
+.tabs {
+  max-width: 100%;
+  overflow-x: auto;
 }
 
 .toolbar {

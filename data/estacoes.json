@@ -1,6 +1,13 @@
 {
   "updatedAt": "2026-07-30",
-  "brands": ["EcoFlow", "Bluetti", "Jackery", "Anker", "Goal Zero", "Generac"],
+  "brands": [
+    "EcoFlow",
+    "Bluetti",
+    "Jackery",
+    "Anker",
+    "Goal Zero",
+    "Generac"
+  ],
   "stations": [
     {
       "id": "ecoflow-river-2",
@@ -21,7 +28,9 @@
       "expandable": false,
       "ups": true,
       "priceBrlApprox": 1899,
-      "notes": "Portátil compacta; carga AC ~1h"
+      "notes": "Portátil compacta; carga AC ~1h",
+      "productUrl": "https://www.ecoflow.com/us/river-2-portable-power-station",
+      "brandUrl": "https://www.ecoflow.com/"
     },
     {
       "id": "ecoflow-river-2-max",
@@ -42,7 +51,9 @@
       "expandable": false,
       "ups": true,
       "priceBrlApprox": 3299,
-      "notes": "Boa para camping e backup leve"
+      "notes": "Boa para camping e backup leve",
+      "productUrl": "https://www.ecoflow.com/us/river-2-max-portable-power-station",
+      "brandUrl": "https://www.ecoflow.com/"
     },
     {
       "id": "ecoflow-river-2-pro",
@@ -63,7 +74,9 @@
       "expandable": false,
       "ups": true,
       "priceBrlApprox": 4499,
-      "notes": "Carga AC rápida ~70 min"
+      "notes": "Carga AC rápida ~70 min",
+      "productUrl": "https://www.ecoflow.com/us/river-2-pro-portable-power-station",
+      "brandUrl": "https://www.ecoflow.com/"
     },
     {
       "id": "ecoflow-delta-2",
@@ -85,7 +98,9 @@
       "maxExpandedWh": 3072,
       "ups": true,
       "priceBrlApprox": 6999,
-      "notes": "Expansível com EXTRA BATTERY"
+      "notes": "Expansível com EXTRA BATTERY",
+      "productUrl": "https://www.ecoflow.com/us/delta-2-portable-power-station",
+      "brandUrl": "https://www.ecoflow.com/"
     },
     {
       "id": "ecoflow-delta-2-max",
@@ -107,7 +122,9 @@
       "maxExpandedWh": 6144,
       "ups": true,
       "priceBrlApprox": 11999,
-      "notes": "Dois slots de expansão"
+      "notes": "Dois slots de expansão",
+      "productUrl": "https://www.ecoflow.com/us/delta-2-max-portable-power-station",
+      "brandUrl": "https://www.ecoflow.com/"
     },
     {
       "id": "ecoflow-delta-pro",
@@ -129,7 +146,9 @@
       "maxExpandedWh": 25000,
       "ups": true,
       "priceBrlApprox": 24999,
-      "notes": "Backup residencial / Dual Fuel"
+      "notes": "Backup residencial / Dual Fuel",
+      "productUrl": "https://www.ecoflow.com/us/delta-pro-portable-power-station",
+      "brandUrl": "https://www.ecoflow.com/"
     },
     {
       "id": "ecoflow-delta-pro-3",
@@ -151,7 +170,9 @@
       "maxExpandedWh": 12288,
       "ups": true,
       "priceBrlApprox": 28999,
-      "notes": "LFP; saída 4000W contínua"
+      "notes": "LFP; saída 4000W contínua",
+      "productUrl": "https://www.ecoflow.com/us/delta-pro-3-portable-power-station",
+      "brandUrl": "https://www.ecoflow.com/"
     },
     {
       "id": "bluetti-ac70",
@@ -172,7 +193,9 @@
       "expandable": false,
       "ups": true,
       "priceBrlApprox": 4999,
-      "notes": "Compacta com 1000W AC"
+      "notes": "Compacta com 1000W AC",
+      "productUrl": "https://www.bluettipower.com/products/ac70",
+      "brandUrl": "https://www.bluettipower.com/"
     },
     {
       "id": "bluetti-ac180",
@@ -193,7 +216,9 @@
       "expandable": false,
       "ups": true,
       "priceBrlApprox": 7499,
-      "notes": "Turbo charging ~45 min a 80%"
+      "notes": "Turbo charging ~45 min a 80%",
+      "productUrl": "https://www.bluettipower.com/products/ac180",
+      "brandUrl": "https://www.bluettipower.com/"
     },
     {
       "id": "bluetti-ac200l",
@@ -215,7 +240,9 @@
       "maxExpandedWh": 8192,
       "ups": true,
       "priceBrlApprox": 12999,
-      "notes": "Expansível até ~8 kWh"
+      "notes": "Expansível até ~8 kWh",
+      "productUrl": "https://www.bluettipower.com/products/ac200l",
+      "brandUrl": "https://www.bluettipower.com/"
     },
     {
       "id": "bluetti-ac300",
@@ -237,7 +264,9 @@
       "maxExpandedWh": 12288,
       "ups": true,
       "priceBrlApprox": 18999,
-      "notes": "Requer B300; capacidade modular"
+      "notes": "Requer B300; capacidade modular",
+      "productUrl": "https://www.bluettipower.com/products/ac300",
+      "brandUrl": "https://www.bluettipower.com/"
     },
     {
       "id": "jackery-explorer-300",
@@ -258,7 +287,9 @@
       "expandable": false,
       "ups": false,
       "priceBrlApprox": 2199,
-      "notes": "Leve para viagens"
+      "notes": "Leve para viagens",
+      "productUrl": "https://www.jackery.com/products/explorer-300-portable-power-station",
+      "brandUrl": "https://www.jackery.com/"
     },
     {
       "id": "jackery-explorer-1000-pro",
@@ -279,7 +310,9 @@
       "expandable": false,
       "ups": false,
       "priceBrlApprox": 7999,
-      "notes": "Carga solar rápida"
+      "notes": "Carga solar rápida",
+      "productUrl": "https://www.jackery.com/products/explorer-1000-pro-portable-power-station",
+      "brandUrl": "https://www.jackery.com/"
     },
     {
       "id": "jackery-explorer-2000-plus",
@@ -301,7 +334,9 @@
       "maxExpandedWh": 24000,
       "ups": true,
       "priceBrlApprox": 14999,
-      "notes": "Sistema expansível até 24 kWh"
+      "notes": "Sistema expansível até 24 kWh",
+      "productUrl": "https://www.jackery.com/products/explorer-2000-plus-portable-power-station",
+      "brandUrl": "https://www.jackery.com/"
     },
     {
       "id": "anker-solix-c300",
@@ -322,7 +357,9 @@
       "expandable": false,
       "ups": false,
       "priceBrlApprox": 1999,
-      "notes": "USB-C PD 140W"
+      "notes": "USB-C PD 140W",
+      "productUrl": "https://www.ankersolix.com/products/c300-dc-portable-power-station",
+      "brandUrl": "https://www.ankersolix.com/"
     },
     {
       "id": "anker-solix-f2000",
@@ -344,7 +381,9 @@
       "maxExpandedWh": 4096,
       "ups": true,
       "priceBrlApprox": 12999,
-      "notes": "InfiniPower; expansão opcional"
+      "notes": "InfiniPower; expansão opcional",
+      "productUrl": "https://www.ankersolix.com/products/f2000-portable-power-station",
+      "brandUrl": "https://www.ankersolix.com/"
     },
     {
       "id": "goalzero-yeti-1000x",
@@ -366,7 +405,9 @@
       "maxExpandedWh": 2000,
       "ups": false,
       "priceBrlApprox": 10999,
-      "notes": "Ecossistema Goal Zero / Yeti Link"
+      "notes": "Ecossistema Goal Zero / Yeti Link",
+      "productUrl": "https://www.goalzero.com/products/yeti-1000x-portable-power-station",
+      "brandUrl": "https://www.goalzero.com/"
     },
     {
       "id": "generac-gb1000",
@@ -387,21 +428,83 @@
       "expandable": false,
       "ups": true,
       "priceBrlApprox": 8499,
-      "notes": "Marca de geradores entrando em power stations"
+      "notes": "Marca de geradores entrando em power stations",
+      "productUrl": "https://www.generac.com/all-products/portable-power/power-stations",
+      "brandUrl": "https://www.generac.com/"
     }
   ],
   "defaultLoads": [
-    { "name": "Geladeira (compressor)", "watts": 150, "hoursPerDay": 8, "surgeW": 600 },
-    { "name": "TV LED 40\"", "watts": 60, "hoursPerDay": 4, "surgeW": 60 },
-    { "name": "Roteador Wi-Fi", "watts": 15, "hoursPerDay": 24, "surgeW": 15 },
-    { "name": "Notebook", "watts": 65, "hoursPerDay": 6, "surgeW": 65 },
-    { "name": "Iluminação LED (5 lâmpadas)", "watts": 50, "hoursPerDay": 6, "surgeW": 50 },
-    { "name": "Carregador de celular", "watts": 18, "hoursPerDay": 3, "surgeW": 18 },
-    { "name": "Ventilador", "watts": 55, "hoursPerDay": 8, "surgeW": 55 },
-    { "name": "Micro-ondas", "watts": 1000, "hoursPerDay": 0.25, "surgeW": 1200 },
-    { "name": "Cafeteira", "watts": 800, "hoursPerDay": 0.2, "surgeW": 800 },
-    { "name": "Bomba d'água", "watts": 750, "hoursPerDay": 0.5, "surgeW": 1500 },
-    { "name": "Ar-condicionado 9.000 BTU", "watts": 900, "hoursPerDay": 6, "surgeW": 1800 },
-    { "name": "Freezer horizontal", "watts": 120, "hoursPerDay": 10, "surgeW": 500 }
+    {
+      "name": "Geladeira (compressor)",
+      "watts": 150,
+      "hoursPerDay": 8,
+      "surgeW": 600
+    },
+    {
+      "name": "TV LED 40\"",
+      "watts": 60,
+      "hoursPerDay": 4,
+      "surgeW": 60
+    },
+    {
+      "name": "Roteador Wi-Fi",
+      "watts": 15,
+      "hoursPerDay": 24,
+      "surgeW": 15
+    },
+    {
+      "name": "Notebook",
+      "watts": 65,
+      "hoursPerDay": 6,
+      "surgeW": 65
+    },
+    {
+      "name": "Iluminação LED (5 lâmpadas)",
+      "watts": 50,
+      "hoursPerDay": 6,
+      "surgeW": 50
+    },
+    {
+      "name": "Carregador de celular",
+      "watts": 18,
+      "hoursPerDay": 3,
+      "surgeW": 18
+    },
+    {
+      "name": "Ventilador",
+      "watts": 55,
+      "hoursPerDay": 8,
+      "surgeW": 55
+    },
+    {
+      "name": "Micro-ondas",
+      "watts": 1000,
+      "hoursPerDay": 0.25,
+      "surgeW": 1200
+    },
+    {
+      "name": "Cafeteira",
+      "watts": 800,
+      "hoursPerDay": 0.2,
+      "surgeW": 800
+    },
+    {
+      "name": "Bomba d'água",
+      "watts": 750,
+      "hoursPerDay": 0.5,
+      "surgeW": 1500
+    },
+    {
+      "name": "Ar-condicionado 9.000 BTU",
+      "watts": 900,
+      "hoursPerDay": 6,
+      "surgeW": 1800
+    },
+    {
+      "name": "Freezer horizontal",
+      "watts": 120,
+      "hoursPerDay": 10,
+      "surgeW": 500
+    }
   ]
 }

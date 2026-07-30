@@ -5,10 +5,11 @@ Ferramenta web para **dimensionar** estações de energia portáteis (power stat
 ## Funcionalidades
 
 - Cálculo de consumo diário e energia necessária (DoD, eficiência do inversor, margem)
-- Catálogo JSON com modelos EcoFlow, Bluetti, Jackery, Anker, Goal Zero, Generac
+- Dimensionamento solar (HSP, perdas, quantidade de painéis, inversores e estações)
+- Catálogos com links oficiais: estações, painéis e inversores
 - Recomendações ranqueadas por adequação
-- Comparação lado a lado (até 3 modelos)
-- API simples `GET /api/estacoes`
+- Comparação lado a lado (até 3 estações)
+- APIs `GET /api/estacoes` e `GET /api/solar`
 
 ## Stack
 
@@ -33,4 +34,4 @@ Abra `http://localhost:3000`.
 
 ## Dados
 
-O banco de modelos fica em `data/estacoes.json`. Preços e specs são aproximados — valide sempre com a ficha oficial do fabricante.
+Os bancos ficam em `data/estacoes.json` (power stations) e `data/solar.json` (painéis e inversores). Preços e specs são aproximados — valide sempre no site oficial do fabricante (cada card tem o link).

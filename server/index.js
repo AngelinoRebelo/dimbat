@@ -5,20 +5,23 @@ const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 3000;
 const ROOT = path.join(__dirname, "..");
-const DATA_PATH = path.join(ROOT, "data", "estacoes.json");
+const DATA_DIR = path.join(ROOT, "data");
 
 app.disable("x-powered-by");
 
-app.get("/api/estacoes", (_req, res) => {
-  fs.readFile(DATA_PATH, "utf8", (err, raw) => {
+function sendJsonFile(fileName, res) {
+  fs.readFile(path.join(DATA_DIR, fileName), "utf8", (err, raw) => {
     if (err) {
       console.error(err);
-      res.status(500).json({ error: "Não foi possível ler o catálogo." });
+      res.status(500).json({ error: `Não foi possível ler ${fileName}.` });
       return;
     }
     res.type("json").send(raw);
   });
-});
+}
+
+app.get("/api/estacoes", (_req, res) => sendJsonFile("estacoes.json", res));
+app.get("/api/solar", (_req, res) => sendJsonFile("solar.json", res));
 
 app.get("/api/health", (_req, res) => {
   res.json({ ok: true, service: "dimbat" });
